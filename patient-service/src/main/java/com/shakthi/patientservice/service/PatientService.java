@@ -15,9 +15,9 @@ public class PatientService {
     public PatientService(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;
     }
-    public List<PatientResponseDTO> patientResponseDTOS() {
+    public List<PatientResponseDTO> getPatients() {
         List<Patient> patients = patientRepository.findAll();
         return patients.stream().
                 map(PatientMapper::toDTO).toList();
-    } 
+    }
 }
