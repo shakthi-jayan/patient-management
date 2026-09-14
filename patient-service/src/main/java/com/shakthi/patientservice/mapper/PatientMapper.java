@@ -1,7 +1,10 @@
 package com.shakthi.patientservice.mapper;
 
+import com.shakthi.patientservice.dto.PatientRequestDTO;
 import com.shakthi.patientservice.dto.PatientResponseDTO;
 import com.shakthi.patientservice.model.Patient;
+
+import java.time.LocalDate;
 
 public class PatientMapper {
     public static PatientResponseDTO toDTO(Patient patient) {
@@ -12,5 +15,17 @@ public class PatientMapper {
         patientDTO.setEmail(patient.getEmail());
         patientDTO.setDateOfBirth(patient.getDateOfBirth().toString());
         return patientDTO;
+    }
+
+    public static Patient toModel(PatientRequestDTO patientRequestDTO) {
+        Patient patient = new Patient();
+        // Call getters on the instance variable
+        patient.setName(patientRequestDTO.getName());
+        patient.setEmail(patientRequestDTO.getEmail());
+        patient.setAddress(patientRequestDTO.getAddress());
+        patient.setDateOfBirth(LocalDate.parse(patientRequestDTO.getDateOfBirth()));
+        patient.setRegisteredDate(LocalDate.parse(patientRequestDTO.getRegisteredDate()));
+
+        return patient;
     }
 }

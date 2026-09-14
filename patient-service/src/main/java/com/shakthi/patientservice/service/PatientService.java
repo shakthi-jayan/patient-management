@@ -1,5 +1,6 @@
 package com.shakthi.patientservice.service;
 
+import com.shakthi.patientservice.dto.PatientRequestDTO;
 import com.shakthi.patientservice.dto.PatientResponseDTO;
 import com.shakthi.patientservice.mapper.PatientMapper;
 import com.shakthi.patientservice.model.Patient;
@@ -19,5 +20,9 @@ public class PatientService {
         List<Patient> patients = patientRepository.findAll();
         return patients.stream().
                 map(PatientMapper::toDTO).toList();
+    }
+    public PatientResponseDTO createPatient(PatientRequestDTO patientRequestDTO) {
+        Patient patient = patientRepository.save(PatientMapper.toModel(patientRequestDTO));
+        return PatientMapper.toDTO(patient);
     }
 }

@@ -5,9 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class PatientRequestDTO {
+
     @NotBlank(message = "Username is required")
     @Size(max = 100, message = "Username cannot exceed 100 characters")
-    private String username;
+    private String name;
 
     @NotBlank(message = "Email is required")
     @Email(message = "Email should be valid")
@@ -21,44 +22,44 @@ public class PatientRequestDTO {
 
     @NotBlank(message = "Registered data is required")
     private String registeredDate;
-    
-    public @NotBlank(message = "Username is required") @Size(max = 100, message = "Username cannot exceed 100 characters") String getUsername() {
-        return username;
+
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(@NotBlank(message = "Username is required") @Size(max = 100, message = "Username cannot exceed 100 characters") String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public @NotBlank(message = "Email is required") @Email(message = "Email should be valid") String getEmail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setEmail(@NotBlank(message = "Email is required") @Email(message = "Email should be valid") String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
 
-    public @NotBlank(message = "Address is required") String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(@NotBlank(message = "Address is required") String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public @NotBlank(message = "Date of Birth is required") String getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(@NotBlank(message = "Date of Birth is required") String dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public @NotBlank(message = "Registered data is required") String getRegisteredDate() {
+    public String getRegisteredDate() {
         return registeredDate;
     }
 
-    public void setRegisteredDate(@NotBlank(message = "Registered data is required") String registeredDate) {
+    public void setRegisteredDate(String registeredDate) {
         this.registeredDate = registeredDate;
     }
 }

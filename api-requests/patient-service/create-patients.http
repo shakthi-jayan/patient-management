@@ -1,0 +1,12 @@
+### POST request to create patients
+POST localhost:4000/patients
+Content-Type: application/json
+
+{
+    "name" : "Shakthi Jayan",
+    "email" : "shakthi123@gmail.com",
+    "address": "123 Gandhi Street",
+    "dateOfBirth" : "2005-02-22" ,
+    "registeredDate" : "2023-10-01"
+}
+###
